@@ -1,0 +1,43 @@
+# Define some basic colors using tput (8-bit color: 256 colors)
+red="\[$(tput setaf 160)\]"
+pink="\[$(tput setaf 212)\]"
+bright_pink="\[$(tput setaf 212)\]"
+light_purple="\[$(tput setaf 183)\]"
+orange="\[$(tput setaf 172)\]"
+blue="\[$(tput setaf 37)\]"
+light_blue="\[$(tput setaf 153)\]"
+bold="\[$(tput bold)\]"
+reset="\[$(tput sgr0)\]"
+
+# Define basic colors to be used in prompt
+## The color for username (light_blue, for root user: bright_pink)
+username_color="${reset}${bold}${light_blue}\$([[ \${EUID} == 0 ]] && echo \"${bright_pink}\")";
+## Color of @ and ✗ symbols (bright pink)
+at_color=$reset$bold$bright_pink
+## Color of host/pc-name (blue)
+host_color=$reset$bold$blue
+## Color of current working directory (light_purple)
+directory_color=$reset$light_purple
+## Color of the - symbol (light_purple)
+tac_color=$reset$light_purple
+## Color for other characters (like the arrow) (pink)
+etc_color=$reset$pink
+# If last operation did not succeded, add [✗]- to the prompt
+on_error="\$([[ \$? != 0 ]] && echo \"${etc_color}[${at_color}✗${etc_color}]─\")"
+# The last symbol in prompt ($, for root user: #)
+symbol="${reset}${bold}${bright_pink}$(if [[ ${EUID} == 0 ]]; then echo '#'; else echo '$'; fi)"
+
+
+# Setup the prompt/prefix for linux terminal
+PS1="${etc_color}┌─${on_error}[";
+PS1+="${username_color}\u"; # \u=Username
+PS1+="${at_color}@";
+PS1+="${host_color}\h" #\h=Host
+PS1+="${etc_color}]";
+PS1+="${tac_color}-";
+PS1+="${etc_color}[";
+PS1+="${directory_color}\w"; # \w=Working directory
+PS1+="${etc_color}]\n└──╼ "; # \n=New Line
+PS1+="${symbol}${reset}";
+
+export PS1
