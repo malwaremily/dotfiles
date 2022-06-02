@@ -85,10 +85,40 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+# this will print to console machine deets each time .bashrc is run
+printf "\n"
+printf "   %s\n" "DATE: $(date)"
+printf "   %s\n" "UPTIME: $(uptime -p)"
+printf "   %s\n" "HOSTNAME: $(hostname -f)"
+printf "   %s\n" "USER: $(echo $USER)"
+printf "   %s\n" "IP ADDR: $(hostname -I | awk '{print $1}')"
+printf "   %s\n" "CPU$(cat /proc/cpuinfo | grep "model name" | uniq | cut -f2)"
+printf "   %s\n" "KERNEL: $(uname -rms)"
+printf "   %s\n" "MEMORY: $(free -m -h | awk '/Mem/{print $3"/"$2}')"
+printf "   %s\n" "PACKAGES: $(dpkg --get-selections | wc -l)"
+printf "   %s\n" "RESOLUTION: $(xrandr | awk '/\*/{printf $1" "}')"
+printf "\n"
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias ..='cd ..;pwd'
+alias ...='cd ../..;pwd'
+alias ....='cd ../../..;pwd'
+# View the calender by typing the first three letters of the month.
+alias jan='cal -m 01'
+alias feb='cal -m 02'
+alias mar='cal -m 03'
+alias apr='cal -m 04'
+alias may='cal -m 05'
+alias jun='cal -m 06'
+alias jul='cal -m 07'
+alias aug='cal -m 08'
+alias sep='cal -m 09'
+alias oct='cal -m 10'
+alias nov='cal -m 11'
+alias dec='cal -m 12'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -119,3 +149,20 @@ complete -C /usr/bin/terraform terraform
 #export GOPATH="/home/winnie/workspace/"
 #export PATH="$PATH:$GOPATH/bin"
 
+# FUNCTIONS
+function find_largest_files() {
+    du -h -x -s -- * | sort -r -h | head -20;
+}
+# intialize a new git directory
+function git_init() {
+    if [ -z "$1" ]; then
+        printf "%s\n" "Please provide a directory name.";
+    else
+        mkdir "$1";
+        builtin cd "$1";
+        pwd;
+        git init;
+        touch readme.md .gitignore LICENSE;
+        echo "# $(basename $PWD)" >> readme.md
+    fi
+}
