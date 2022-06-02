@@ -1,0 +1,44 @@
+---Government_News_Sites---
+https://www.eff.org/rss/updates.xml "~Electronic Frontier Foundation" gov
+https://www.cisa.gov/uscert/ncas/bulletins.xml gov
+https://www.cisa.gov/uscert/ncas/current-activity.xml gov
+https://www.cisa.gov/uscert/ncas/analysis-reports.xml gov
+https://www.justice.gov/rss/justice-news/all/all/all/1664/und%2Ben/all/1974-01-01%3Bnow gov "~U.S. Department of Justice" 
+---Individual_Security_Researchers---
+https://www.n00py.io/feed/ "~n00py" offense
+https://www.evilsocket.net/atom.xml "~evilsocket" offense
+https://swagitda.com/blog/posts/index.xml "~swagitda" secdevops
+https://www.darknet.org.uk/feed/
+https://blog.malwaremustdie.org/feeds/posts/default?alt=rss
+https://hackerunder.dev/index.xml
+https://malwaremily.com/index.xml
+---Security_Research_Team_Blogs---
+https://blog.google/threat-analysis-group/rss/ threatintel 
+https://googleonlinesecurity.blogspot.com/atom.xml defense
+https://googleprojectzero.blogspot.com/feeds/posts/default defense
+http://feeds.feedburner.com/GoogleOnlineSecurityBlog defense
+https://www.microsoft.com/security/blog/feed/ defense
+https://msrc-blog.microsoft.com/rss defense
+https://www.digitalocean.com/community/tags/security.atom defense
+https://swarm.ptsecurity.com/rss
+https://labs.f-secure.com/blog/rss "~f-secure"
+https://www.mandiant.com/resources/rss.xml/all?f%5B0%5D=layout%3Aarticle_blog "~Mandiant"
+---Other_Technology_Blogs---
+https://rachelbythebay.com/w/atom.xml "~Rachel by the Bay"
+https://jvns.ca/atom.xml "~Julia Evans"
+---Other_Vender_blogs---
+https://code.facebook.com/posts/rss/ "~Facebook Security" defense
+https://blog.shodan.io/rss/ threatintel
+https://blog.sucuri.net/feed/ defense
+https://protonmail.com/blog/feed/ privacy
+https://code.facebook.com/posts/rss/
+https://www.trustedsec.com/blog/rss
+https://redcanary.com/blog/rss
+---Security_News_Sites---
+https://www.bleepingcomputer.com/feed/ news
+---Security_Podcasts---
+http://brakeingsecurity.com/rss news
+https://anchor.fm/s/44d375a4/podcast/rss "~Detection: Challenging Paradigms"
+---Security_Feeds---
+https://security-soup.net/feed/
+https://thisweekin4n6.com/rss
