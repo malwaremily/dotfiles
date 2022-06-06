@@ -6,7 +6,7 @@ auto-reload no
 bookmark-autopilot false
 bookmark-cmd ""
 bookmark-interactive false
-browser "lynx"
+browser "xdg-open"
 cache-file ""
 cleanup-on-quit yes
 confirm-delete-all-articles yes
